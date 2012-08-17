@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<overlay id="copy_as_html_link"
+    xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+	
+	<script type="application/x-javascript" src="chrome://copy_as_html_link/content/copy_as_html_link.js"></script>
+	<script>
+		window.addEventListener("load", copy_as_html_link_init, false);
+	</script>
+	
+	<keyset id="mainKeyset">
+		<key id="key_copy_as_html_link" modifiers="accel,shift" key="C" oncommand="copy_as_html_link();" />
+	</keyset>
+		
+	<!-- Context Menu -->
+	<popup id="contentAreaContextMenu">
+		<menuitem id="copy_as_html_link-context-menu" label="Copy as HTML Link"
+					accesskey="L" class="menuitem-iconic" insertafter="context-copy" oncommand="copy_as_html_link();" />
+	</popup>
+	
+	<!-- Firefox Edit Menu -->
+	<popup id="menu_EditPopup" onpopupshowing="copy_as_html_link_showEditMenu();">
+		<menuitem id="copy_as_html_link-edit-menu" label="Copy as HTML Link" key="key_copy_as_html_link"
+					accesskey="L" class="menuitem-iconic" position="6" oncommand="copy_as_html_link();" />
+	</popup>
+</overlay>
