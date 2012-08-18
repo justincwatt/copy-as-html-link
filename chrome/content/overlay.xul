@@ -9,18 +9,18 @@
 	</script>
 	
 	<keyset id="mainKeyset">
-		<key id="key_copy_as_html_link" modifiers="accel,shift" key="&copy_as_html_link.menu.key;" oncommand="copy_as_html_link();" />
+		<key id="key_copy_as_html_link" modifiers="accel,shift" key="&copy_as_html_link.menuitem.key;" oncommand="copy_as_html_link();" />
 	</keyset>
 		
 	<!-- Context Menu -->
 	<popup id="contentAreaContextMenu">
-		<menuitem id="copy_as_html_link-context-menu" label="&copy_as_html_link.menu.label;"
-					accesskey="&copy_as_html_link.menu.accesskey;" class="menuitem-iconic" insertafter="context-copy" oncommand="copy_as_html_link();" />
+		<menuitem id="copy_as_html_link-context-menu" label="&copy_as_html_link.menuitem.label;"
+					accesskey="&copy_as_html_link.menuitem.accesskey;" class="menuitem-iconic" insertafter="context-copy" oncommand="copy_as_html_link();" />
 	</popup>
 	
 	<!-- Firefox Edit Menu -->
 	<popup id="menu_EditPopup" onpopupshowing="copy_as_html_link_showEditMenu();">
-		<menuitem id="copy_as_html_link-edit-menu" label="&copy_as_html_link.menu.label;" key="key_copy_as_html_link"
-					accesskey="&copy_as_html_link.menu.accesskey;" class="menuitem-iconic" position="6" oncommand="copy_as_html_link();" />
+		<menuitem id="copy_as_html_link-edit-menu" label="&copy_as_html_link.menuitem.label;" key="key_copy_as_html_link"
+					accesskey="&copy_as_html_link.menuitem.accesskey;" class="menuitem-iconic" position="6" oncommand="copy_as_html_link();" />
 	</popup>
 </overlay>
