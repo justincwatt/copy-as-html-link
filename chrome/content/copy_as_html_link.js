@@ -4,7 +4,7 @@
 This code draws heavily upon the Copy Plain Text 0.3.2 extension 
 written by Jeremy Gillick: http://mozmonkey.com/ Used with permission.
 
-Copyright (C) 2009 Justin Watt
+Copyright (C) 2012 Justin Watt
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -27,37 +27,54 @@ function copy_as_html_link()
   try
   {
     // get selected text and location of the current page
-    var str = copy_as_html_link_getSelection() + "";
-    var url = document.commandDispatcher.focusedWindow.location.href;
+    var link_text = copy_as_html_link_getSelection() + "";
+    var link_url = document.commandDispatcher.focusedWindow.location.href;
     
     // if no text was selected, but we're clicking on a link...
-    if (str != null && str.length == 0 && gContextMenu && gContextMenu.onLink && !gContextMenu.onMailtoLink) {
-      str = gContextMenu.linkText();
-      url = gContextMenu.linkURL;
+    if (link_text != null && link_text.length == 0 && gContextMenu && gContextMenu.onLink && !gContextMenu.onMailtoLink) {
+      link_text = gContextMenu.linkText();
+      link_url = gContextMenu.linkURL;
     }
     
     // remove newlines, compact duplicate spaces, and trim
-    str = str.replace(/[\n\r]/g, " ");
-    str = str.replace(/\s+/g, " ");
-    str = str.replace(/^\s*|\s*$/g, "");
+    link_text = link_text.replace(/[\n\r]/g, " ");
+    link_text = link_text.replace(/\s+/g, " ");
+    link_text = link_text.replace(/^\s*|\s*$/g, "");
     
     // escape characters with special html meaning
-    str = str.replace(/&/g, "&amp;");
-    str = str.replace(/</g, "&lt;");
-    str = str.replace(/>/g, "&gt;");
+    link_text = link_text.replace(/&/g, "&amp;");
+    link_text = link_text.replace(/</g, "&lt;");
+    link_text = link_text.replace(/>/g, "&gt;");
 
     // escape ampersands in url (for use as html)
-    url = url.replace(/&/g, "&amp;");
+    link_url = link_url.replace(/&/g, "&amp;");
 
     // copy
-    if (str != null && str.length > 0) {
+    if (link_text != null && link_text.length > 0) {
       
       // build link
-      str = "<a href=\"" + url + "\">" + str + "</a>";
+      html_link = "<a href=\"" + link_url + "\">" + link_text + "</a>";
       
-      // copy to clipboard
-      var clipboard = Components.classes["@mozilla.org/widget/clipboardhelper;1"].getService(Components.interfaces.nsIClipboardHelper);
-      clipboard.copyString(str);
+      // copy to clipboard in both unicode and html flavors
+      // see: https://developer.mozilla.org/en-US/docs/Using_the_Clipboard
+      var str = Components.classes["@mozilla.org/supports-string;1"].createInstance(Components.interfaces.nsISupportsString);
+      if (!str) return false;
+      str.data = html_link;
+       
+      var trans = Components.classes["@mozilla.org/widget/transferable;1"].
+      createInstance(Components.interfaces.nsITransferable);
+      if (!trans) return false;
+       
+      trans.addDataFlavor("text/unicode");
+      trans.setTransferData("text/unicode", str, html_link.length * 2);
+      trans.addDataFlavor("text/html");
+      trans.setTransferData("text/html", str, html_link.length * 2);
+       
+      var clipid = Components.interfaces.nsIClipboard;
+      var clip = Components.classes["@mozilla.org/widget/clipboard;1"].getService(clipid);
+      if (!clip) return false;
+       
+      clip.setData(trans, null, clipid.kGlobalClipboard);
     }
   }
   catch(err)
