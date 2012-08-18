@@ -1,4 +1,5 @@
 <?xml version="1.0"?>
+<!DOCTYPE overlay SYSTEM "chrome://copy_as_html_link/locale/overlay.dtd">
 <overlay id="copy_as_html_link"
     xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
 	
@@ -8,18 +9,18 @@
 	</script>
 	
 	<keyset id="mainKeyset">
-		<key id="key_copy_as_html_link" modifiers="accel,shift" key="C" oncommand="copy_as_html_link();" />
+		<key id="key_copy_as_html_link" modifiers="accel,shift" key="&copy_as_html_link.menu.key;" oncommand="copy_as_html_link();" />
 	</keyset>
 		
 	<!-- Context Menu -->
 	<popup id="contentAreaContextMenu">
-		<menuitem id="copy_as_html_link-context-menu" label="Copy as HTML Link"
-					accesskey="L" class="menuitem-iconic" insertafter="context-copy" oncommand="copy_as_html_link();" />
+		<menuitem id="copy_as_html_link-context-menu" label="&copy_as_html_link.menu.label;"
+					accesskey="&copy_as_html_link.menu.accesskey;" class="menuitem-iconic" insertafter="context-copy" oncommand="copy_as_html_link();" />
 	</popup>
 	
 	<!-- Firefox Edit Menu -->
 	<popup id="menu_EditPopup" onpopupshowing="copy_as_html_link_showEditMenu();">
-		<menuitem id="copy_as_html_link-edit-menu" label="Copy as HTML Link" key="key_copy_as_html_link"
-					accesskey="L" class="menuitem-iconic" position="6" oncommand="copy_as_html_link();" />
+		<menuitem id="copy_as_html_link-edit-menu" label="&copy_as_html_link.menu.label;" key="key_copy_as_html_link"
+					accesskey="&copy_as_html_link.menu.accesskey;" class="menuitem-iconic" position="6" oncommand="copy_as_html_link();" />
 	</popup>
 </overlay>

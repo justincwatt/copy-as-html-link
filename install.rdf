@@ -4,7 +4,7 @@
 	
 	<Description about="urn:mozilla:install-manifest">
 		<em:id>{c82059e2-6143-416d-9bbb-f5f04472e207}</em:id>
-		<em:version>2.0</em:version>
+		<em:version>3.0</em:version>
 		<em:type>2</em:type>
 
 		<!-- Firefox -->
@@ -12,14 +12,21 @@
 			<Description>
 				<em:id>{ec8030f7-c20a-464f-9b0e-13a3a9e97384}</em:id>
 				<em:minVersion>1.5</em:minVersion>
-				<em:maxVersion>3.5.*</em:maxVersion>
+				<em:maxVersion>14.*</em:maxVersion>
 			</Description>
 		</em:targetApplication>
 		
 		<em:name>Copy as HTML Link</em:name>
-		<em:description>Creates an HTML link to the current page using the selected text and copies it</em:description>
+		<em:description>Copies the selected text and URL of the current page as an HTML link.</em:description>
 		<em:creator>Justin Watt</em:creator>
 		<em:homepageURL>http://justinsomnia.org/</em:homepageURL>
+		<em:localized>
+			<Description>
+				<em:locale>en-US</em:locale>
+				<em:name>Copy as HTML Link</em:name>
+				<em:description>Copies the selected text and URL of the current page as an HTML link.</em:description>
+			</Description>
+		</em:localized>
 	</Description>
 		
 </RDF>
