@@ -1,3 +1,7 @@
 overlay	chrome://browser/content/browser.xul	chrome://copy_as_html_link/content/overlay.xul
 content	copy_as_html_link	chrome/content/
 locale	copy_as_html_link	en-US	chrome/locale/en-US/
+locale	copy_as_html_link	fr	chrome/locale/fr/
+locale	copy_as_html_link	nl	chrome/locale/nl/
+locale	copy_as_html_link	sr	chrome/locale/sr/
+locale	copy_as_html_link	zh-CN	chrome/locale/zh-CN/

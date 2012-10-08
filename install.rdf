@@ -4,15 +4,15 @@
 	
 	<Description about="urn:mozilla:install-manifest">
 		<em:id>{c82059e2-6143-416d-9bbb-f5f04472e207}</em:id>
-		<em:version>3.0</em:version>
+		<em:version>3.1</em:version>
 		<em:type>2</em:type>
 
 		<!-- Firefox -->
 		<em:targetApplication>
 			<Description>
 				<em:id>{ec8030f7-c20a-464f-9b0e-13a3a9e97384}</em:id>
-				<em:minVersion>1.5</em:minVersion>
-				<em:maxVersion>14.*</em:maxVersion>
+				<em:minVersion>3.0</em:minVersion>
+				<em:maxVersion>16.*</em:maxVersion>
 			</Description>
 		</em:targetApplication>
 		
@@ -25,6 +25,34 @@
 				<em:locale>en-US</em:locale>
 				<em:name>Copy as HTML Link</em:name>
 				<em:description>Copies the selected text and URL of the current page as an HTML link.</em:description>
+			</Description>
+
+			<Description>
+				<em:locale>fr</em:locale>
+				<em:name>Copier comme lien HTML</em:name>
+				<em:description>Copie le texte et l'URL sélectionnés de la page courante en lien HTML.</em:description>
+				<em:translator>jojaba</em:translator>
+			</Description>
+
+			<Description>
+				<em:locale>nl</em:locale>
+				<em:name>Kopiëren als HTML-koppeling</em:name>
+				<em:description>Kopieert de geselecteerde tekst en URL van de huidige pagina als een HTML-koppeling.</em:description>
+				<em:translator>markh</em:translator>
+			</Description>
+
+			<Description>
+				<em:locale>sr</em:locale>
+				<em:name>Копирај као HTML везу</em:name>
+				<em:description>Копира изабрани текст и URL тренутне странице као URL везу.</em:description>
+				<em:translator>DakSrbija</em:translator>
+			</Description>
+
+			<Description>
+				<em:locale>zh-CN</em:locale>
+				<em:name>作为 HTML 链接复制</em:name>
+				<em:description>将选中的文字和当前页面的地址作为 HTML 链接复制</em:description>
+				<em:translator>whknnn</em:translator>
 			</Description>
 		</em:localized>
 	</Description>
