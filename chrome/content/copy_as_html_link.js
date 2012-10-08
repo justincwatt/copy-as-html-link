@@ -57,13 +57,21 @@ function copy_as_html_link()
       
       // copy to clipboard in both unicode and html flavors
       // see: https://developer.mozilla.org/en-US/docs/Using_the_Clipboard
-      var str = Components.classes["@mozilla.org/supports-string;1"].createInstance(Components.interfaces.nsISupportsString);
+      var str = Components.classes["@mozilla.org/supports-string;1"].
+      createInstance(Components.interfaces.nsISupportsString);
       if (!str) return false;
       str.data = html_link;
        
       var trans = Components.classes["@mozilla.org/widget/transferable;1"].
       createInstance(Components.interfaces.nsITransferable);
       if (!trans) return false;
+
+      // init() was added to nsITransferable in FF16 for Private Browsing Mode
+      // see https://bugzilla.mozilla.org/show_bug.cgi?id=722872 for more info
+      // adding typeof checking to ensure backwards compatibility
+      if (typeof trans.init === 'function') {
+        trans.init(null);
+      }
        
       trans.addDataFlavor("text/unicode");
       trans.setTransferData("text/unicode", str, html_link.length * 2);
