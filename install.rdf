@@ -4,7 +4,7 @@
 	
 	<Description about="urn:mozilla:install-manifest">
 		<em:id>{c82059e2-6143-416d-9bbb-f5f04472e207}</em:id>
-		<em:version>3.1</em:version>
+		<em:version>3.2</em:version>
 		<em:type>2</em:type>
 
 		<!-- Firefox -->
@@ -54,6 +54,14 @@
 				<em:description>将选中的文字和当前页面的地址作为 HTML 链接复制</em:description>
 				<em:translator>whknnn</em:translator>
 			</Description>
+
+			<Description>
+				<em:locale>de</em:locale>
+				<em:name>Als HTML Link kopieren</em:name>
+				<em:description>Kopiert den ausgewählten Text und die URL der aktuellen Seite als HTML-Link.</em:description>
+				<em:translator>FatherDeath</em:translator>
+			</Description>
+
 		</em:localized>
 	</Description>
 		

@@ -5,3 +5,4 @@ locale	copy_as_html_link	fr	chrome/locale/fr/
 locale	copy_as_html_link	nl	chrome/locale/nl/
 locale	copy_as_html_link	sr	chrome/locale/sr/
 locale	copy_as_html_link	zh-CN	chrome/locale/zh-CN/
+locale  copy_as_html_link	de	chrome/locale/de/
